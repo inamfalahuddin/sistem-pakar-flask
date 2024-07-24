@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="{{ url_for('static', filename='img/truelogo.png') }}" />
+  <title>Genius Career | Hasil Akhir Tes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+  <style>
+    .header_content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 25%;
+      background-color: #aad7d9;
+      width: 100%;
+      height: 100px;
+      padding: 20px;
+    }
+
+    .header_content .header_content_mini {
+      display: flex;
+      justify-content: space-between;
+      gap: 450px;
+      align-items: center;
+      width: 100%;
+      margin-left: 30px;
+      margin-right: 30px;
+      text-align: center;
+    }
+
+    .logoo img {
+      width: 110px !important;
+    }
+
+    .header_content .header_content_mini img {
+      width: 60px;
+    }
+
+    .per-tes {
+      margin-left: 1400px !important;
+      margin-top: 1.5rem !important;
+      margin-bottom: 50px !important;
+      font-size: 20px !important;
+    }
+
+    .hasil_persen {
+      color: rgb(224, 0, 0);
+      font-weight: 500;
+      font-size: 22px;
+      display: inline-block;
+      margin: 0 0 0 0;
+      padding-top: 0;
+      /* atau nilai lain yang sesuai */
+      padding-bottom: 0;
+    }
+
+    .panduan_content {
+      background-image: url("../static/img/bg_panduan.png");
+      background-size: cover;
+      width: 100%;
+      height: 90vh;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="header">
+    <div class="header_content">
+      <div class="header_content_mini">
+        <div class="logoo">
+          <img src="{{ url_for('static', filename='img/truelogo.png') }}" alt="" />
+        </div>
+        <div class="profill">
+          <img src="{{ url_for('static', filename='img/profil1.png') }}" alt="Profile Icon" data-toggle="modal"
+            data-target="#profilModal" />
+          <h4 style="font-size: 20px">{{ naman }}</h4>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="panduan_content">
+    <div>
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12" style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  margin-top: 40px;
+                  margin-bottom: 20px;
+                  position: relative;
+                ">
+              <div class="card" style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 50%;
+                    padding: 30px;
+                    border-radius: 20px;
+                    border: 1px solid #5fa3b6;
+                    background-color: #f5f5f5;
+                    position: relative;
+                  ">
+                <div style="
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                      margin-bottom: 20px;
+                    ">
+                  <span style="font-size: 30px; font-weight: 500">
+                    Terimakasih, {{ nama if nama else '' }} 🙏
+                  </span> <br>
+                  <p>
+                    Kami mengucapkan terima kasih yang sebesar-besarnya kepada Anda karena telah menggunakan website
+                    kami sebagai alat untuk menjalani tes Sistem Pakar Penentu Jenis Kecerdasan guna Mengetahui Peluang
+                    Karir. Kami sangat menghargai waktu dan kepercayaan yang Anda berikan. Semoga hasil dari tes ini
+                    dapat memberikan wawasan yang berharga dan membantu Anda dalam merencanakan karir yang sesuai dengan
+                    potensi serta kecerdasan Anda. Terima kasih dan sukses selalu! 🎉
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div style="display: absolute; z-index: 2;">
+              <div style="
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                  ">
+                <a href="{{ url_for('logout') }}" class="btn btn-lg" style="
+                      background-color: #5fa3b6;
+                      width: 200px;
+                      border-radius: 50px;
+                      color: #fff;
+                      font-weight: bold;
+                      cursor: pointer;
+                    ">LOGOUT</a>
+                <a href="{{ url_for('tes') }}" class="btn btn-lg" style="
+                      background-color: #5fa3b6;
+                      width: 200px;
+                      border-radius: 50px;
+                      color: #fff;
+                      font-weight: bold;
+                      cursor: pointer;
+                    ">ULANGI TES</a>
+              </div>
+            </div>
+
+            <!-- bacground orang -->
+            <div class="col-12 mt-4" style="
+                  display: flex;
+                  position: absolute;
+                  justify-content: space-between;
+                  align-items: center;
+                  top: 0px;
+                  z-index: 1;
+                ">
+              <img src="{{ url_for('static', filename='img/standing1.png') }}" alt="" style="width: 200px" />
+              <img src="{{ url_for('static', filename='img/standing.png') }}" alt="" style="width: 200px" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="profilModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="profilModalLabel">Profil Pengguna</h5>
+        </div>
+        <div class="modal-body">
+          <p class="form-control">
+            <span style="font-weight: bold">Nama:</span> {{ user_data['name']
+            }}
+          </p>
+          <p class="form-control">
+            <span style="font-weight: bold">Email:</span> {{
+            user_data['email'] }}
+          </p>
+          <p class="form-control">
+            <span style="font-weight: bold">Telepon:</span> {{
+            user_data['phone'] }}
+          </p>
+          <p class="form-control">
+            <span style="font-weight: bold">Alamat:</span> {{
+            user_data['alamat'] }}
+          </p>
+          <p class="form-control">
+            <span style="font-weight: bold">Instansi:</span> {{
+            user_data['instansi'] }}
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

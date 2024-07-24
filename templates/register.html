@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='img/truelogo.png') }}"
+    />
+    <title>Genius Career | Registrasi</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='assets/plugins/fontawesome-free/css/all.min.css') }}"
+    />
+    <!-- icheck bootstrap -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}"
+    />
+    <!-- Theme style -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='assets/dist/css/adminlte.min.css') }}"
+    />
+  </head>
+  <body class="hold-transition register-page">
+    <section class="py-3 py-md-5 py-xl-8">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <img
+              class="img-fluid rounded mt-0 mobile-hidden"
+              loading="lazy"
+              src="{{ url_for('static', filename='img/login.png') }}"
+              width="500"
+              height="500"
+              style="margin-bottom: 10%"
+              alt="BootstrapBrain Logo"
+            />
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="card">
+                <div
+                  class="card-body w-100"
+                  style="
+                    background-image: url('../static/img/latar_login.png');
+                    background-size: cover;
+                  "
+                >
+                  <h5 class="text-center w-100" style="color: rgb(48, 48, 48)">
+                    Register Akun Baru
+                  </h5>
+
+                  <form action="{{ url_for('register') }}" method="post">
+                    {% with messages = get_flashed_messages() %} {% if messages
+                    %}
+                    <ul>
+                      {% for message in messages %}
+                      <li>{{ message }}</li>
+                      {% endfor %}
+                    </ul>
+                    {% endif %} {% endwith %}
+                    <div class="row">
+                      <div class="col-6 mb-3">
+                        <div class="input-group">
+                          <input type="text" class="form-control" name="name" placeholder="Nama Lengkap"
+                            value="{{ name | default('') }}" />
+                          <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6 mb-3">
+                        <div class="input-group">
+                          <input type="email" class="form-control" name="email" placeholder="Email"
+                            value="{{ email | default('') }}" />
+                          <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6 mb-3">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">+62</span>
+                          </div>
+                          <input type="text" class="form-control" id="phone" name="phone" placeholder="Telepon"
+                            value="{{ phone | default('') }}" />
+                          <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6 mb-3">
+                        <div class="input-group">
+                          <input type="password" class="form-control" name="password" placeholder="Password" />
+                          <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 mb-3">
+                        <div class="input-group">
+                          <textarea class="form-control" name="alamat"
+                            placeholder="Alamat">{{ alamat | default('') }}</textarea>
+                          <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-address-book"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 mb-3">
+                        <div class="input-group">
+                          <input type="text" class="form-control" name="instansi" placeholder="Instansi"
+                            value="{{ instansi | default('') }}" />
+                          <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-building"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-12 mb-2">
+                        <button type="submit" class="btn btn-primary btn-block">
+                          Register
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="{{ url_for('static',filename='assets/plugins/jquery/jquery.min.js') }}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{ url_for('static',filename='assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ url_for('static',filename='assets/dist/js/adminlte.min.js') }}"></script>
+    <script>
+      document.getElementById("phone").addEventListener("input", function (e) {
+        let value = e.target.value;
+        if (value.startsWith("0")) {
+          e.target.value = value.substring(1);
+        }
+      });
+    </script>
+  </body>
+</html>

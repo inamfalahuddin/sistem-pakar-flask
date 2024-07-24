@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Diri</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bs-brain@2.0.4/components/logins/login-9/assets/css/login-9.css"
+    />
+    <style>
+      nav .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+      }
+
+      .header_content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 25%;
+        background-color: #aad7d9;
+        width: 100%;
+        height: 100px;
+        padding: 20px;
+      }
+
+      .header_content .header_content_mini {
+        display: flex;
+        justify-content: space-between;
+        gap: 450px;
+        align-items: center;
+        width: 100%;
+        margin-left: 30px;
+        margin-right: 30px;
+        text-align: center;
+      }
+
+      .logoo img {
+        width: 110px !important;
+      }
+
+      .header_content .header_content_mini img {
+        width: 60px;
+      }
+
+      .content_data {
+        background-image: url("../static/img/bg_datadiri.png");
+        background-size: cover;
+        width: 100%;
+        height: 90vh;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="header">
+      <div class="header_content">
+        <div class="header_content_mini">
+          <div class="logoo">
+            <img
+              src="{{ url_for('static', filename='img/truelogo.png') }}"
+              alt=""
+            />
+          </div>
+          <div class="profill">
+            <img
+              src="{{ url_for('static', filename='img/profil1.png') }}"
+              alt=""
+            />
+            <h4 style="font-size: 20px">{{ email }}</h4>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="content_data">
+      <div>
+        <div>
+          <div>
+            <div class="card" style="border: none; background: transparent">
+              <div class="row">
+                <div class="col-12">
+                  <div
+                    class="text-center"
+                    style="margin-bottom: 1px; margin-top: 30px"
+                  >
+                    <h3 style="font-size: 40px; font-family: poppins">
+                      Data Diri
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <form action="{{ url_for('identitas') }}" method="post">
+                <div class="row">
+                  <div
+                    class="col-12"
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                    "
+                  >
+                    <div
+                      class="form-floating mb-3"
+                      style="
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                      "
+                    >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="nama"
+                        style="
+                          width: 800px;
+                          border-radius: 50px;
+                          border-color: #000;
+                        "
+                        id="nama"
+                        placeholder="nama"
+                        required
+                      />
+                      <label for="nama" class="form-label text-center"
+                        >Nama Lengkap</label
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="col-12"
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                    "
+                  >
+                    <div
+                      class="form-floating mb-3"
+                      style="
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                      "
+                    >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="telepon"
+                        style="
+                          width: 800px;
+                          border-radius: 50px;
+                          border-color: #000;
+                        "
+                        id="telepon"
+                        placeholder="No Telepon"
+                        required
+                      />
+                      <label for="telepon" class="form-label text-center"
+                        >No Telepon</label
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="col-12"
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                    "
+                  >
+                    <div
+                      class="form-floating mb-3"
+                      style="
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                      "
+                    >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="alamat"
+                        style="
+                          width: 800px;
+                          border-radius: 50px;
+                          border-color: #000;
+                        "
+                        id="alamat"
+                        placeholder="alamat"
+                        required
+                      />
+                      <label for="alamat" class="form-label text-center"
+                        >Alamat</label
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="col-12"
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                    "
+                  >
+                    <div
+                      class="form-floating mb-3"
+                      style="
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                      "
+                    >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="sekolah"
+                        style="
+                          width: 800px;
+                          border-radius: 50px;
+                          border-color: #000;
+                        "
+                        id="sekolah"
+                        placeholder="sekolah"
+                        required
+                      />
+                      <label for="sekolah" class="form-label text-center"
+                        >Asal Sekolah / Universitas / Institusi</label
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="col-12"
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                    "
+                  >
+                    <div class="d-grid">
+                      <button
+                        class="btn btn-lg"
+                        style="
+                          background-color: #fd8a8a;
+                          width: 600px;
+                          border-radius: 50px;
+                          margin-top: 10px;
+                          color: #fff;
+                          font-weight: bold;
+                        "
+                        type="submit"
+                      >
+                        Selesai
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

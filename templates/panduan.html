@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genius Career | Panduan</title>
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='img/truelogo.png') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bs-brain@2.0.4/components/logins/login-9/assets/css/login-9.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <style>
+      .header_content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 25%;
+        background-color: #aad7d9;
+        width: 100%;
+        height: 100px;
+        padding: 20px;
+      }
+
+      .header_content .header_content_mini {
+        display: flex;
+        justify-content: space-between;
+        gap: 450px;
+        align-items: center;
+        width: 100%;
+        margin-left: 30px;
+        margin-right: 30px;
+        text-align: center;
+      }
+
+      .logoo img {
+        width: 110px !important;
+      }
+
+      .header_content .header_content_mini img {
+        width: 60px;
+      }
+
+      .primary-bg {
+        background-color: #007bff;
+        color: white;
+      }
+
+      .panduan_content {
+        background-image: url("../static/img/bg_panduan.png");
+        background-size: cover;
+        width: 100%;
+        height: 90vh;
+        padding: 20px 0; /* Menambahkan padding atas-bawah */
+      }
+    </style>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul class="primary-bg p-3">
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+    <nav class="header">
+      <div class="header_content">
+        <div class="header_content_mini">
+          <div class="logoo">
+            <img
+              src="{{ url_for('static', filename='img/truelogo.png') }}"
+              alt=""
+            />
+          </div>
+          <div class="profill">
+            <img
+              src="{{ url_for('static', filename='img/profil1.png') }}"
+              alt="Profile Icon"
+              data-bs-toggle="modal"
+              data-bs-target="#profilModal"
+            />
+            <h4 style="font-size: 20px">{{ nama }}</h4>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="panduan_content">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h1 style="margin-bottom: 20px">Panduan Dasar</h1>
+          </div>
+          <div
+            class="col-md-8 d-flex justify-content-center align-items-center"
+          >
+            <div class="card border-0">
+              <div
+                class="card border rounded p-3"
+                style="width: 100%; background-color: #f5f5f5"
+              >
+                <ul class="mb-3" style="list-style: none; color: #000">
+                  <li>
+                    1. Identifikasi minat, keahlian, dan kelemahan Anda. Ini
+                    membantu Anda memahami area mana yang mungkin menjadi minat
+                    dan bakat Anda.
+                  </li>
+                  <li>2. Tidak ada batasan waktu dalam mengerjakan tes.</li>
+                  <li>
+                    3. Saat mengerjakan tes, pastikan Anda memahami setiap
+                    instruksi dengan baik.
+                  </li>
+                  <li>
+                    4. Ketika menjawab pertanyaan, jadilah jujur pada diri
+                    sendiri. Jawablah sesuai dengan keadaan sebenarnya, bukan
+                    yang Anda harapkan.
+                  </li>
+                  <li>
+                    5. Usahakan tetap tenang dan fokus. Ini akan membantu Anda
+                    memberikan jawaban yang lebih akurat.
+                  </li>
+                  <li>
+                    6. Gunakan hasil tes untuk merencanakan langkah-langkah
+                    selanjutnya dalam mengembangkan minat dan bakat Anda dan
+                    menjelajahi karier yang cocok dengan minat Anda.
+                  </li>
+                </ul>
+              </div>
+              <a
+                href="{{ url_for('tes') }}"
+                class="btn btn-lg mt-4 mx-auto"
+                style="
+                  background-color: #fd8a8a;
+                  width: 300px;
+                  border-radius: 50px;
+                  margin-top: 40px;
+                  color: #fff;
+                  font-weight: bold;
+                "
+                >Mulai Tes</a
+              >
+            </div>
+          </div>
+          <div
+            class="col-md-4 d-flex justify-content-center align-items-center"
+          >
+            <img
+              src="{{ url_for('static', filename='img/gampanduan.png') }}"
+              style="width: 100%; max-width: 400px"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="profilModal"
+      tabindex="-1"
+      aria-labelledby="profilModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="profilModalLabel">Profil Pengguna</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p class="form-control">
+              <span style="font-weight: bold">Nama:</span> {{ user_data['name']
+              }}
+            </p>
+            <p class="form-control">
+              <span style="font-weight: bold">Email:</span> {{
+              user_data['email'] }}
+            </p>
+            <p class="form-control">
+              <span style="font-weight: bold">Telepon:</span> {{
+              user_data['phone'] }}
+            </p>
+            <p class="form-control">
+              <span style="font-weight: bold">Alamat:</span> {{
+              user_data['alamat'] }}
+            </p>
+            <p class="form-control">
+              <span style="font-weight: bold">Instansi:</span> {{
+              user_data['instansi'] }}
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
